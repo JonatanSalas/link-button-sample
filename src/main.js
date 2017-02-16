@@ -6,7 +6,6 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import { Router, Route, browserHistory } from 'react-router';
 import LinkButtonContainer from './LinkButtonContainer.js';
-import RaisedLinkButtonContainer from './RaisedLinkButtonContainer.js';
 
 injectTapEventPlugin();
 
@@ -16,7 +15,6 @@ const App = () => (
     <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
         <Router history={browserHistory}>
             <Route path='/' component={LinkButtonContainer}/>
-            <Route path='/raised' component={RaisedLinkButtonContainer}/>
             <Route path='/properties' component={HelloProperties}/>
         </Router>
     </MuiThemeProvider>
