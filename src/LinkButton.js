@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { FlatButton, RaisedButton } from 'material-ui';
 import { Link } from 'react-router';
 
-const LinkButton = ({ flat, children, style, className, href }) => {
+const LinkButton = ({ flat, children, style, className, href, ...props }) => {
     const containerElement = <Link to={href}/>;
     const buttonProps = {
         containerElement,
@@ -12,13 +12,13 @@ const LinkButton = ({ flat, children, style, className, href }) => {
 
     if (flat) {
         return (
-            <FlatButton {...buttonProps}>
+            <FlatButton {...buttonProps} {...props}>
                 {children}
             </FlatButton>
         )
     } else {
         return (
-            <RaisedButton {...buttonProps}>
+            <RaisedButton {...buttonProps} {...props}>
                 {children}
             </RaisedButton>
         )
@@ -27,8 +27,8 @@ const LinkButton = ({ flat, children, style, className, href }) => {
 
 LinkButton.propTypes = {
     flat: PropTypes.bool.isRequired,
-    href: PropTypes.bool.isRequired,
-    children: PropTypes.array.isRequired,
+    href: PropTypes.string.isRequired,
+    children: PropTypes.any.isRequired,
     style: PropTypes.string,
     className: PropTypes.string
 }
